@@ -1,1 +1,1 @@
-# ankoko - memo app with kotlin-based android
+# Memo App with Kotlin-based Android
