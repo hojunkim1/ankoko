@@ -30,7 +30,7 @@ class MemoAddActivity : AppCompatActivity() {
         Thread {
             SystemClock.sleep(500)
 
-            runOnUiThread() {
+            runOnUiThread {
                 // 포커스를 준다.
                 binding.addMemoSubject.requestFocus()
                 // 키보드를 보여준다.
@@ -57,8 +57,8 @@ class MemoAddActivity : AppCompatActivity() {
             // 저장 버튼
             R.id.add_menu_write -> {
                 // 사용자가 입력한 내용 가져오기
-                val memo_subject = binding.addMemoSubject.text
-                val memo_text = binding.addMemoText.text
+                val memoSubject = binding.addMemoSubject.text
+                val memoText = binding.addMemoText.text
 
                 // 쿼리문
                 val sql = """
@@ -74,7 +74,7 @@ class MemoAddActivity : AppCompatActivity() {
                 val now = sdf.format(Date())
 
                 // ? 에 셋팅될 값
-                var arg1 = arrayOf(memo_subject, memo_text, now)
+                val arg1 = arrayOf(memoSubject, memoText, now)
 
                 // 저장
                 helper.writableDatabase.execSQL(sql, arg1)
